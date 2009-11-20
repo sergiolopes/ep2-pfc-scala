@@ -15,7 +15,7 @@ object Algoritmos {
 	def silhuetaDeEdificio(edif: Edificio): List[ElemSilhueta] = throw new RuntimeException
  
 	// devolve o algoritmo baseado no numero dele
-	def buscaAlgoritmo(num: Int) = num  match {
+	def buscaAlgoritmo(num: Int) = num match {
 	  case 1 => algoritmo1 _
       case 2 => algoritmo2 _
       case 3 => algoritmo3 _
