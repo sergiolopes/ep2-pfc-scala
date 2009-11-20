@@ -9,8 +9,9 @@ import util.Saida._
 object Silhueta {
   def main(args : Array[String]) : Unit = {
     
-    val (algoritmo, entrada, saidaSilhueta, saidaImagem) = parseArgumentos(args)
+    val (numAlgoritmo, entrada, saidaSilhueta, saidaImagem) = parseArgumentos(args)
     val edificios = leEntrada(entrada)
+    val algoritmo = buscaAlgoritmo(numAlgoritmo)
     val silhueta  = algoritmo(edificios)
     
     imprimeSilhueta(silhueta, saidaSilhueta)
