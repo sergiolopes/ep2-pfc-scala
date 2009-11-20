@@ -22,7 +22,7 @@ object Leitura {
     	saidaSilhueta = new FileOutputStream(args(2))
     
     if (args.length >= 4)
-    	saidaImagem = args(2)
+    	saidaImagem = args(3)
     
     (algoritmo, entrada, saidaSilhueta, saidaImagem)
   }
