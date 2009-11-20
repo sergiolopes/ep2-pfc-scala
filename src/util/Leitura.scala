@@ -3,6 +3,7 @@ package util
 import modelo._
 import java.io._
 import algoritmos.Algoritmos._
+import scala.io.Source 
 
 // funções de leitura
 object Leitura {
@@ -28,6 +29,13 @@ object Leitura {
   }
   
   def leEntrada(entrada: InputStream) : List[Edificio] = {
-    throw new RuntimeException
+    var lista = List[Edificio]()
+    val dados =  Source.fromInputStream(entrada).getLines.toList
+    val qtde = dados(0).replaceAll("\n","").toInt
+    for(i <- 1 to qtde){
+      var array = dados(i).split("\\s+")
+      lista = Edificio(array(0).toInt,array(1).toInt,array(2).toInt) :: lista
+    }
+    lista
   }
 }

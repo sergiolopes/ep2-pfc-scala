@@ -5,7 +5,8 @@ object Run {
   def main(args : Array[String]) : Unit = {
     
 	Runner.main(Array("-p", ".", "-o", "-s", "util.LeituraSuite"))
-    JUnitCore.main("imagem.MatrizTest")
+    Runner.main(Array("-p",".","-o","-s","algoritmos.SilhuetaAlgoritmos"))
+	JUnitCore.main("imagem.MatrizTest")
     
   }
 }

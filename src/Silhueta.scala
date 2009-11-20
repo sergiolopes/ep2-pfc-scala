@@ -13,7 +13,7 @@ object Silhueta {
     val edificios = leEntrada(entrada)
     val algoritmo = buscaAlgoritmo(numAlgoritmo)
     val silhueta  = algoritmo(edificios)
-    
+    silhueta.foreach(println)
     imprimeSilhueta(silhueta, saidaSilhueta)
     
     if (!saidaImagem.isEmpty)
