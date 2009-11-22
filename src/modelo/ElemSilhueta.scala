@@ -10,5 +10,5 @@ case class ElemSilhueta(
   def <(e: ElemSilhueta) : Boolean = {
       this.x < e.x
   }
-  override def toString = "silhueta elem x:" + x + " alt: "+ h
+  override def toString = "x: " + x + " alt: "+ h
 }
