@@ -1,9 +1,43 @@
 package imagem
 import modelo._
 import Constantes._
+import java.io._
 
 object Funcoes {
-	def geraImagem(s: List[ElemSilhueta], nomeArq: String): Unit = throw new RuntimeException
+	def geraImagem(s: List[ElemSilhueta], nomeArq: String): Unit = {
+	  val file = new FileWriter(nomeArq)
+      geraImagem(s, file)
+      file.close
+	}
+  
+    def geraImagem(s: List[ElemSilhueta], writer: Writer): Unit = {
+	  val matriz = geraMatriz(s)
+      val out = new PrintWriter(writer)
+      out.println("P2")
+      out.println("%d %d" format (NCols,NLins))
+      out.println(Branco)
+      out.print(matriz.toString)
+      out.close
+	}
+ 
+	def geraMatriz(silhueta: List[ElemSilhueta]):Matriz[Int] = {
+	  val matriz = Matriz[Int](NLins,NCols)
+	  preencheBorda(matriz)
+   
+	  var atual = ElemSilhueta(0,0)
+	  for (proximo <- silhueta) {
+	    val lin1 = Base - atual.h - 1
+	    
+	    preencheRetangulo(matriz, lin1, Base - 1, atual.x, proximo.x, Cinza)
+	    preencheRetangulo(matriz, 0, lin1, atual.x, proximo.x, Branco)
+        atual = proximo
+	  }
+   
+	  if (atual.x < NCols - 1)
+		  preencheRetangulo(matriz, 0, Base - 1, atual.x, NCols - 1, Branco)
+   
+	  matriz
+	}
  
 	def preencheBorda(matriz: Matriz[Int]):Unit = {
 	  preencheRetangulo(matriz, Base, BordaInf, 0, NCols - 1, Branco)
