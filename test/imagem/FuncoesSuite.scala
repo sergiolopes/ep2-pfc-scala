@@ -2,6 +2,7 @@ package imagem
 import org.junit._
 import org.hamcrest.CoreMatchers._
 import Assert._
+import Constantes._
 
 class FuncoesSuite {
   
@@ -18,5 +19,22 @@ class FuncoesSuite {
             assertThat(matriz(i,j), is(42))
       }
     }
+  }
+  
+  @Test
+  def testaPreencheBorda:Unit= {
+    val matriz = Matriz[Int](NLins,NCols)
+    Funcoes.preencheBorda(matriz)
+    
+    for (i <- 0 until Base)
+      for (j <- 0 until matriz.colunas)
+    	assertThat(matriz(i,j), nullValue())
+    
+    for (j <- 0 until matriz.colunas)
+    	assertThat(matriz(Base,j), is(Preto))
+    
+    for (i <- Base + 1 until NLins)
+      for (j <- 0 until matriz.colunas)
+    	assertThat(matriz(i,j), is(Branco))
   }
 }

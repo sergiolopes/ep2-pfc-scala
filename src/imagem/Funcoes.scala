@@ -1,8 +1,14 @@
 package imagem
 import modelo._
+import Constantes._
 
 object Funcoes {
 	def geraImagem(s: List[ElemSilhueta], nomeArq: String): Unit = throw new RuntimeException
+ 
+	def preencheBorda(matriz: Matriz[Int]):Unit = {
+	  preencheRetangulo(matriz, Base, BordaInf, 0, NCols - 1, Branco)
+      preencheRetangulo(matriz, Base, Base, 0, NCols - 1, Preto)
+	}
 
     def preencheRetangulo(a: Matriz[Int], 
 		      lin1: Int, lin2: Int,
