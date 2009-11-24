@@ -1,6 +1,6 @@
 package imagem
 
-trait Constantes {
+object Constantes {
     val NLins = 600                     // número de linhas da imagem
     val NCols = 800                     // número de colunas da imagem
     val BordaInf = NLins - 1            // borda inferior (última linha da imagem) 
