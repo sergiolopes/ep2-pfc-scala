@@ -14,6 +14,13 @@ class Matriz[T] (
   def apply(x: Int, y: Int) = array(x)(y)
   def update(x: Int, y: Int, v: T) = array(x)(y) = v
   
+  override def toString = {
+    val sb = new StringBuilder
+    array foreach(sb append _.mkString(" ") append "\n")
+    sb.remove(sb.length - 1)
+    sb.toString
+  }
+  
   def linhas = n
   def colunas = m
 }
