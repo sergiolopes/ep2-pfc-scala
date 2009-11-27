@@ -1,0 +1,30 @@
+MAC5765 - T—picos em Sistemas de Computa‹o - Segundo Semestre de 2009
+	Programa‹o Funcional Contempor‰nea
+
+EP2 - Exerc’cio-Programa 2: A Silhueta de um Conjunto de Edif’cios
+	
+Alunos: Sergio Lopes e Thadeu de Russo e Carmo
+
+
+EstratŽgia para o algoritmo de uni‹o de suas silhuetas
+-------------------------------------------------------
+O algoritmo implementado segue uma estrategia simples, apesar da n‹o trivialidade do problema. A idŽia consiste em,
+dadas duas silhuetas, em ordem n‹o decrescente de x, faz-se a uni‹o delas com base na seguinte defini‹o:
+	uniao(l1, l2) =
+		l1, se l2 for vazia
+		l1, se l1 for vazia
+		uniao(l1,l2') ++ cabeca(l2), caso cabeca(l1) > cabeca (l2), onde l2' Ž dado por l2 - cabeca(l2)
+		uniao(l1',l2) ++ cabeca(l1), caso cabeca(l1) <= cabeca (l2), onde l1' Ž dado por l1 - cabeca(l1)
+
+Em outras palavras, o algoritmo segue uma estratŽgia muito semelhante a do merge sort. A opera‹o ++ mostrada na defin‹o acima,
+Ž implementada pela fun‹o adicionaElemento, cujo responsabilidade Ž fazer as verifica›es necess‡rias para que o resultado produzido
+seja uma silhueta que respeite as restri›es de entrada do algoritmo. Esta fun‹o usa como estratŽgia para fazer a interesec‹o do novo elemento,
+o particionamento da lista para identificar o exato ponto onde o novo elemento deve ficar. As fun›es montaListaX, escondem as valida›es para cada 
+caso.
+
+Informa›es Adicionais
+----------------------
+Assim como solicidado no enunciado do exerc’cio, a implementa‹o do algoritmo 2 utiliza fun‹o de calda, as implementa›es de foldLeft e foldRight
+possuem apenas uma linha e fazem, essencialmente o que os outros algoritmos (1 e 2) fazem. Foi adicionado uma verifica‹o para os par‰metros de entrada
+onde, caso o nœmero do algoritmo seja 4 ou 5, a invoca‹o ser‡ em cima da implementa‹o com folds.
+
